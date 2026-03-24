@@ -9,3 +9,17 @@ Make the church schedules
 - Calcular se não tem membros escalados para coisas diferentes no mesmo dia (quem faz a escala validará se dá para o membro executar as tarefas)
 - Pegar as datas da Agenda da Associação -> para fazer com mais ciência das pessoas que podem participar em determinado evento
 - Impressão das escalas formatadas
+
+Modelo de JSON: 
+"escala": {
+    "domingo, 01 de março": [
+        "pessoa",
+        "pessoa2",
+        "pessoa3"
+    ],
+    "quarta, 04 de março": [
+        "pessoa",
+        "pessoa2",
+        "pessoa3"
+    ]
+}
