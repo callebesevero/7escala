@@ -7,9 +7,11 @@ export function parseToJSON() {
             return lb.textContent;
         });
         const input = Array.from(document.querySelectorAll("#date > div > input")).map(inp => {
-            let people = inp.value;
+            const people = inp.value;
             if (people.includes(",")) {
-                const splitedPeople = people.split(",");
+                const splitedPeople = people.split(",").map(p => {
+                    return p.trim();
+                });
                 return splitedPeople;
             } else {
                 const splitedPeople = people.trim();
