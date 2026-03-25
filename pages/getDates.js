@@ -15,4 +15,4 @@ const serviceDays = serviceDaysUnformated.map(date => {
     return dt.format(date, "eeee, dd 'de' MMMM", { locale: ptBR });
 });
 
-export { serviceDays }
+export default serviceDays
