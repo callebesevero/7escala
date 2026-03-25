@@ -6,7 +6,7 @@ export function parseToJSON() {
             const label = Array.from(document.querySelectorAll("label")).map(lb => { // Array.from() because document.querySelectorAll("label") returns a NodeList
                 return lb.textContent;
             });
-            const input = Array.from(document.querySelectorAll("#date > div > input")).map(inp => {
+            const input = Array.from(document.querySelectorAll("#calendar > div > input")).map(inp => {
                 const people = inp.value;
                 if (people.includes(",")) {
                     const splitedPeople = people.split(",").map(p => {
