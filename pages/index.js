@@ -1,15 +1,7 @@
 import { parseToJSON } from "./json";
-import dates from "./getDates";
+import { buildEscala } from "./buildEscala";
 
-const serviceDays = dates.map(date => {
-    return `<div><label for="${date}">${date}</label><input type="text" id="${date}"></div>`;
-});
-
-const fieldDate = document.querySelector("#date");
-serviceDays.forEach(field => {
-    return fieldDate.innerHTML += field;
-});
-document.body.innerHTML += `<div><input id="confirm" type="button" value="Confirmar escala"></div>`;
+await buildEscala()
 
 const escalaJSON = await parseToJSON(); // JSON schedule
 console.log(escalaJSON)
