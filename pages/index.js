@@ -6,6 +6,8 @@ const serviceDays = dates.map(date => {
 });
 
 const fieldDate = document.querySelector("#date");
-fieldDate.innerHTML = serviceDays;
-fieldDate.innerHTML += `<div><input id="confirm" type="button" value="Confirmar escala"></div>`;
+serviceDays.forEach(field => {
+    return fieldDate.innerHTML += field;
+});
+document.body.innerHTML += `<div><input id="confirm" type="button" value="Confirmar escala"></div>`;
 parseToJSON()
