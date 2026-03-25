@@ -10,4 +10,4 @@ serviceDays.forEach(field => {
     return fieldDate.innerHTML += field;
 });
 document.body.innerHTML += `<div><input id="confirm" type="button" value="Confirmar escala"></div>`;
-parseToJSON()
+const escalaJSON = parseToJSON()
