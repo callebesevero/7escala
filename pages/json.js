@@ -3,21 +3,8 @@ export function parseToJSON() {
         const confirmButton = document.querySelector("#confirm");
         
         confirmButton.addEventListener("click", () => {
-            const label = Array.from(document.querySelectorAll("label")).map(lb => { // Array.from() because document.querySelectorAll("label") returns a NodeList
-                return lb.textContent;
-            });
-            const input = Array.from(document.querySelectorAll("#calendar > div > input")).map(inp => {
-                const people = inp.value;
-                if (people.includes(",")) {
-                    const splitedPeople = people.split(",").map(p => {
-                        return p.trim(); // tira espaços a mais
-                    });
-                    return splitedPeople;
-                } else {
-                    const splitedPeople = people.trim(); // tira espaços
-                    return splitedPeople;
-                };
-            });
+            const label = getLabel();
+            const input = getInputValue();
     
             const escalaArray = label.map((lb, i) => {
                 return {
@@ -29,5 +16,28 @@ export function parseToJSON() {
             const escalaJSON = JSON.stringify(escalaArray);
             resolve(escalaJSON);
         });
+    });
+};
+
+function getLabel() {
+    return Array.from(document.querySelectorAll("label")).map(lb => { // Array.from() because document.querySelectorAll("label") returns a NodeList
+        return lb.textContent;
+    });
+};
+
+function getInputValue(
+    element="#calendar > div > input"
+) {
+    return Array.from(document.querySelectorAll(element)).map(inp => {
+        const people = inp.value.toUpperCase();
+        if (people.includes(",")) { // if are more of one people
+            const splittedPeople = people.split(",").map(p => {
+                return p.trim(); // delete extra spacebar
+            });
+            return splittedPeople;
+        } else { // One people
+            const splittedPeople = people.trim(); // delete extra spacebar
+            return splittedPeople;
+        };
     });
 };
