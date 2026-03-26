@@ -9,12 +9,12 @@ export async function buildEscala() {
         if (i === 0) {
             const dayName = date.slice(0, date.indexOf(","));
             if (dayName === "quarta-feira") {
-                return `<div></div>` + `<div><label for="${date}">${date}</label><input type="text" id="${date}"></div>`; // config label and input
+                return `<div></div>` + `<div><label for="${date}">${date}</label><input type="text" class="people" id="${date}"></div>`; // config label and input
             } else if (dayName === "sábado") {
-                return `<div></div><div></div>` + `<div><label for="${date}">${date}</label><input type="text" id="${date}"></div>`; // config label and input
+                return `<div></div><div></div>` + `<div><label for="${date}">${date}</label><input type="text" class="people" id="${date}"></div>`; // config label and input
             };
         } else {
-            return `<div><label for="${date}">${date}</label><input type="text" id="${date}"></div>`; // config label and input
+            return `<div><label for="${date}">${date}</label><input type="text" class="people" id="${date}"></div>`; // config label and input
         };
     });
     serviceDays.forEach(field => {

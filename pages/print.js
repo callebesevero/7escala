@@ -2,6 +2,7 @@ export async function printEscala() {
     printJS({
         printable: "calendar",
         type: "html",
-        css: "style.css"
+        css: "style.css",
+        scanStyles: false
     });
 };
