@@ -12,13 +12,31 @@
 
 :root {
     /* color */
-    --bg-light-blue: #ccf7ff;
-    --bg-medium-blue: #b0d5dc;
+    --color-blue: #003366;
+    --color-dark-gray: #303336;
+    --color-light-gray: #eef0f3;
+    --color-white: #fff;
+
+    --color-divisao: #003366;
+    --color-earth: #5e3929;
+    --color-emperor: #4b207f;
+    --color-ming: #3e8391;
+    --color-campfire: #e36520;
+
+    --color-grapevine: #7f264a;
+    --color-tree-frog: #448d21;
+    --color-cool: #4d7549;
+    --color-warm: #ffa92d;
+    --color-denim: #2f557f;
 
     /* font */
-    --h1: bold 50px Roboto;
-    --h2: bold 30px Roboto;
-    --h3: normal 20px Roboto;
+    --font-main: "Noto Sans", sans-serif;
+    --fw-bold: 700;
+    --fw-regular: 400;
+
+    --fs-h1: 50px;
+    --fs-h2: 30px;
+    --fs-h3: 20px;
 }
 
 body {
@@ -29,7 +47,8 @@ body {
     padding: 0% 20%;
 
     /* decoration */
-    background-color: var(--bg-light-blue);
+    color: var(--color-dark-gray);
+    /* background-color: var(--color-dark-gray); */
 }
 
 #calendar {
@@ -40,11 +59,11 @@ body {
 }
 
 .day-name {
-    font: var(--h2);
+    font: var(--fw-regular) var(--fs-h2) var(--font-main);
 }
 
 label {
-    font: var(--h3);
+    font: var(--fw-regular) var(--fs-h3) var(--font-main);
 }
 
 input.people {
@@ -55,5 +74,5 @@ input.people {
     height: 40px;
 
     /* decoration */
-    background-color: var(--bg-medium-blue);
+    background-color: var(--color-light-gray);
 }
