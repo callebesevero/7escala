@@ -2,8 +2,8 @@ import * as dt from "date-fns";
 import { ptBR } from "date-fns/locale";
 
 export default function getServiceDays(
-    year=2026,
-    month=2
+    year=dt.getYear(new Date()),
+    month=dt.getMonth(new Date())
 ) {
     const init = new Date(year, month, 1);
     const end = dt.endOfMonth(init);
