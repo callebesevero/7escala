@@ -36,7 +36,7 @@ function getInputValue(
             });
             return splittedPeople;
         } else { // One people
-            const splittedPeople = people.trim(); // delete extra spacebar
+            const splittedPeople = [people.trim()]; // delete extra spacebar
             return splittedPeople;
         };
     });
