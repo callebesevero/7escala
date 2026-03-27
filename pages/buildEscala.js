@@ -24,5 +24,5 @@ export async function buildEscala(
     serviceDays.forEach(field => {
         return divCalendar.innerHTML += field; // add label and input on html
     });
-    document.body.innerHTML += `<div><input id="confirm" type="button" value="Confirmar escala"></div>`; // add confirmation button
+    document.querySelector(".main-content").innerHTML += `<div><input id="confirm" type="button" value="Confirmar escala"></div>`; // add confirmation button
 };
