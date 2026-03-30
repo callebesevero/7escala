@@ -4,10 +4,12 @@ import { printEscala } from "./print";
 
 await buildEscala();
 
-const escalaJSON = await parseToJSON(); // JSON schedule
-console.log(escalaJSON);
+const confirmButton = document.querySelector("#confirm");
 
-checkMemberRepetition(escalaJSON);
+confirmButton.addEventListener("click", async () => {
+    const escalaJSON = await parseToJSON(); // JSON schedule
+    console.log(escalaJSON);
+});
 
 // if (!checkMemberRepetition(escalaJSON) || checkMemberRepetition(escalaJSON) && button) {
 //     await printEscala();
