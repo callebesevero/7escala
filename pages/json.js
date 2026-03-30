@@ -2,13 +2,19 @@ export function parseToJSON() {
     return new Promise((resolve) => {
         const label = getLabel();
         const input = getInputValue();
+        const department = getDepartment();
 
-        const escalaArray = label.map((lb, i) => {
-            return {
-                "date": lb,
-                "people": input[i]
-            };
-        });
+        const escalaArray = [
+            {"department": department},
+            {"schedule-dates": 
+                label.map((lb, i) => {
+                    return {
+                        "date": lb,
+                        "people": input[i]
+                    };
+                })
+            }
+        ];
 
         const escalaJSON = JSON.stringify(escalaArray);
         resolve(escalaJSON);
@@ -37,6 +43,10 @@ function getInputValue(
         };
     });
 };
+
+function getDepartment() {
+    return document.querySelector("#department").textContent;
+}
 
 export function checkMemberRepetition(
     json
