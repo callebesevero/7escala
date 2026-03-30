@@ -1,4 +1,4 @@
-import { parseToJSON, testMemberRepetition } from "./json";
+import { parseToJSON, checkMemberRepetition } from "./json";
 import { buildEscala } from "./buildEscala";
 import { printEscala } from "./print";
 
@@ -7,8 +7,8 @@ await buildEscala();
 const escalaJSON = await parseToJSON(); // JSON schedule
 console.log(escalaJSON);
 
-testMemberRepetition(escalaJSON);
+checkMemberRepetition(escalaJSON);
 
-// if (!testMemberRepetition(escalaJSON) || testMemberRepetition(escalaJSON) && button) {
+// if (!checkMemberRepetition(escalaJSON) || checkMemberRepetition(escalaJSON) && button) {
 //     await printEscala();
 // };
