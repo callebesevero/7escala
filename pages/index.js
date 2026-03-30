@@ -1,5 +1,5 @@
 import { parseToJSON, checkMemberRepetition } from "./json";
-import { buildEscala } from "./buildEscala";
+import { buildEscala } from "./escala";
 import { printEscala } from "./print";
 
 await buildEscala();

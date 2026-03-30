@@ -1,10 +1,10 @@
 export async function buildEscala(
-    divCalendarId="#calendar"
+    divCalendarId="calendar"
 ) {
-    const module = await import("./getDates");
+    const module = await import("./dates");
     const dates = module.default(2026, 2); // <- mock
     
-    const divCalendar = document.querySelector(divCalendarId);
+    const divCalendar = document.querySelector(`#${divCalendarId}`);
 
     divCalendar.innerHTML += `<div class="day-name">Domingo</div><div class="day-name">Quarta</div><div class="day-name">Sábado</div>`; // add schedule name days
     
