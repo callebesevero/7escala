@@ -16,7 +16,7 @@ export default function getServiceDays(
     });
     
     const serviceDays = serviceDaysUnformated.map(date => {
-        return {"completeDate": dt.format(date, "eeee, dd 'de' MMMM", { locale: ptBR }), "dayName": dt.format(date, "eeee", { locale: ptBR }), "dayNumber": dt.format(date, "dd", { locale: ptBR })};
+        return {"completeDate": dt.format(date, "dd '/' MM '/' yyyy", { locale: ptBR }), "dayName": dt.format(date, "eeee", { locale: ptBR }), "dayNumber": dt.format(date, "dd", { locale: ptBR })};
     });
     return serviceDays;
 };

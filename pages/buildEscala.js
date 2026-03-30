@@ -18,7 +18,7 @@ export async function buildEscala(
                 prefix = `<div></div><div></div>`;
             };
         };
-        return `${prefix}<div><label for="${date["completeDate"]}">${date["dayNumber"]}</label><input type="text" class="people" id="${date["dayNumber"]}"></div>`; // config label and input
+        return `${prefix}<div><label for="${date["dayNumber"]}">${date["dayNumber"]}</label><input type="text" class="people" id="${date["dayNumber"]}"></div>`; // config label and input
     });
 
     serviceDays.forEach(field => {
