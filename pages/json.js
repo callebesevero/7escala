@@ -42,17 +42,32 @@ function getInputValue(
     });
 };
 
-export function testMemberRepetition(
+export function checkMemberRepetition(
     json
 ) {
     // acessar no DB as escalas já prontas para comparar entre si (mas por enquanto usarei o mock)
     const jsonObject = JSON.parse(json);
     // console.log(jsonObject)
+    let repeatedPeople = [];
+
     for (let index in jsonObject) { // repetir com base no número de dias -> in
-        if (mockEscalaJSONComparar[index]["people"][0].includes(jsonObject[index]["people"][0])) {
-            console.log(`A PESSOA ${jsonObject[index]["people"]} FOI REPETIDA`);
-        };
-    }
+        const peopleSavedJSON = Object.values(mockEscalaJSONComparar[index]["people"]);
+        const peopleNewJSON = Object.values(jsonObject[index]["people"]);
+
+        peopleNewJSON.map(people => {
+            if (peopleSavedJSON.includes(people)) {
+                repeatedPeople.push(Object());
+                repeatedPeople.index = people;
+            };
+        });
+    };
+
+    console.log("Dia " + repeatedPeople);
+
+    repeatedPeople.forEach(d => {
+        
+        console.log("Dia " + d);
+    })
     /* MODELO DE RETORNO DO PROBLEMA
     Um problema foi encontrado: MEMBRO(S) ESTÁ(ÃO) OCUPADO(S) EM OUTRO(S) DEPARTAMENTO(S)
 
@@ -72,7 +87,7 @@ const mockEscalaJSONComparar = [
     },
     {
         "date":"05",
-        "people":["CALLEBE"]
+        "people":["ISABELLY"]
     },
     {
         "date":"08",
@@ -80,7 +95,7 @@ const mockEscalaJSONComparar = [
     },
     {
         "date":"11",
-        "people":["CALLEBE"]
+        "people":["ISABELLY"]
     },
     {
         "date":"12",
@@ -88,7 +103,7 @@ const mockEscalaJSONComparar = [
     },
     {
         "date":"15",
-        "people":["CALLEBE"]
+        "people":["ISABELLY"]
     },
     {
         "date":"18",
@@ -96,7 +111,7 @@ const mockEscalaJSONComparar = [
     },
     {
         "date":"19",
-        "people":["CALLEBE"]
+        "people":["ISA"]
     },
     {
         "date":"22",
@@ -104,7 +119,7 @@ const mockEscalaJSONComparar = [
     },
     {
         "date":"25",
-        "people":["CALLEBE"]
+        "people":["ISA"]
     },
     {
         "date":"26",
