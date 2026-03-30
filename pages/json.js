@@ -1,21 +1,17 @@
 export function parseToJSON() {
     return new Promise((resolve) => {
-        const confirmButton = document.querySelector("#confirm");
-        
-        confirmButton.addEventListener("click", () => {
-            const label = getLabel();
-            const input = getInputValue();
-    
-            const escalaArray = label.map((lb, i) => {
-                return {
-                    "date": lb,
-                    "people": input[i]
-                };
-            });
-    
-            const escalaJSON = JSON.stringify(escalaArray);
-            resolve(escalaJSON);
+        const label = getLabel();
+        const input = getInputValue();
+
+        const escalaArray = label.map((lb, i) => {
+            return {
+                "date": lb,
+                "people": input[i]
+            };
         });
+
+        const escalaJSON = JSON.stringify(escalaArray);
+        resolve(escalaJSON);
     });
 };
 
