@@ -12,6 +12,10 @@
 
 :root {
     /* color */
+    --color-blue-7escala: #1E51A1;
+    --color-gray-7escala: #707070;
+    --color-light-gray-7escala: #D2D2D2;
+
     --color-blue: #003366;
     --color-dark-gray: #303336;
     --color-light-gray: #eef0f3;
@@ -22,7 +26,6 @@
     --color-emperor: #4b207f;
     --color-ming: #3e8391;
     --color-campfire: #e36520;
-
     --color-grapevine: #7f264a;
     --color-tree-frog: #448d21;
     --color-cool: #4d7549;
@@ -62,15 +65,24 @@ header {
     justify-content: center;
     
     width: 100dvw;
-    padding: 40px 0px;
+
+    padding: 32px 0px;
 
     /* decoration */
-    background-color: var(--color-blue);
+    background-color: var(--color-blue-7escala);
+}
+
+header a {
+    text-decoration: none;
+
+    color: var(--color-white);
 }
 
 .header-content {
     /* structure */
     display: flex;
+
+    align-content: center;
 
     width: 100%;
 
@@ -82,6 +94,13 @@ header {
     .header-content{
         max-width: var(--desktop-width);
     }
+}
+
+.header-links {
+    flex-grow: 1;
+
+    justify-items: right;
+    align-content: center;
 }
 
 .header-links > ul {
@@ -113,33 +132,66 @@ main {
 .cards {
     display: grid;
 
+    grid-template-columns: 1fr 1fr;
+
     gap: 20px;
 }
 
+.cards a {
+    text-decoration: none;
+}
+
 .card-departamento {
+    display: flex;
+
+    justify-content: center;
+
     padding: 32px 64px;
     
     border-radius: 999px;
 
+    background-color: var(--color-light-gray-7escala);
     font-size: var(--fs-h3);
-    background-color: var(--color-light-gray);
+    color: var(--color-gray-7escala);
 }
 
+#department, #monthYear {
+    color: var(--color-blue-7escala);
+}
 #calendar {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 
-    width: var(--desktop-width);
+    text-align: center;
 
-    gap: 16px 64px;
+    max-width: var(--desktop-width);
+
+    gap: 16px 32px;
+}
+
+.calendar-day {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 8px 32px;
+    
+    height: 80px;
+    border-radius: 32px;
+    
+    border-style: solid;
+    border-color: var(--color-gray-7escala);
+}
+
+.calendar-day label {
+    font: var(--fw-regular) var(--fs-h3) var(--font-main);
+    color: var(--color-gray-7escala);
 }
 
 .day-name {
     font: var(--fw-regular) var(--fs-h2) var(--font-main);
-}
-
-label {
-    font: var(--fw-regular) var(--fs-h3) var(--font-main);
+    color: var(--color-gray-7escala);
 }
 
 input.people {
@@ -147,8 +199,17 @@ input.people {
     border-style: hidden;
     border-radius: 50px;
 
-    height: 40px;
+    min-height: 40px;
+    field-sizing: content;
+    resize: none;
+    overflow: hidden;
+
+    padding: 0px 16px;
 
     /* decoration */
-    background-color: var(--color-light-gray);
+    background-color: var(--color-light-gray-7escala);
+}
+
+input.people::target-text {
+    border-style: hidden;
 }
