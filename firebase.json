@@ -1,7 +1,7 @@
 {
   "hosting": {
     "site": "iasd7escala",
-    "public": "public" 
+    "public": "dist" 
   },
   "database": {
     "rules": "database.rules.json"
