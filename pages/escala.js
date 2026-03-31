@@ -2,10 +2,12 @@ export async function buildEscala(
     divCalendarId="calendar"
 ) {
     const module = await import("./dates");
-    const dates = module.default(2026, 2); // <- mock
+    const dates = module.getServiceDays(); // <- mock
+    const monthYear = module.getMonthYear();
     
-    const divCalendar = document.querySelector(`#${divCalendarId}`);
+    document.querySelector("#main-content-header").innerHTML += `<h2 id="monthYear">${monthYear}</h2>`;
 
+    const divCalendar = document.querySelector(`#${divCalendarId}`);
     divCalendar.innerHTML += `<div class="day-name">Domingo</div><div class="day-name">Quarta</div><div class="day-name">Sábado</div>`; // add schedule name days
     
     const serviceDays = dates.map((date, i) => {
@@ -18,11 +20,11 @@ export async function buildEscala(
                 prefix = `<div></div><div></div>`;
             };
         };
-        return `${prefix}<div><label for="${date["dayNumber"]}">${date["dayNumber"]}</label><input type="text" class="people" id="${date["dayNumber"]}"></div>`; // config label and input
+        return `${prefix}<div class="calendar-day"><label for="${date["dayNumber"]}">${date["dayNumber"]}</label><input type="text" class="people" id="${date["dayNumber"]}" placeholder="Adicione pessoas"></div>`; // config label and input
     });
 
     serviceDays.forEach(field => {
         return divCalendar.innerHTML += field; // add label and input on html
     });
-    document.querySelector(".main-content").innerHTML += `<div><input id="confirm" type="button" value="Confirmar escala"></div>`; // add confirmation button
+    document.querySelector(".main-content").innerHTML += `<div><input id="confirm" type="button" value="Confirmar escala"></div>`;
 };

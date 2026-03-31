@@ -3,18 +3,18 @@ export function parseToJSON() {
         const label = getLabel();
         const input = getInputValue();
         const department = getDepartment();
+        const date = getDate();
 
-        const escalaArray = [
-            {"department": department},
-            {"schedule-dates": 
-                label.map((lb, i) => {
-                    return {
-                        "date": lb,
-                        "people": input[i]
-                    };
-                })
-            }
-        ];
+        const escalaArray = {
+            "department": department,
+            "date": date,
+            "service-dates": label.map((lb, i) => {
+                return {
+                    "date": lb,
+                    "people": input[i]
+                };
+            })
+        };
 
         const escalaJSON = JSON.stringify(escalaArray);
         resolve(escalaJSON);
@@ -46,7 +46,11 @@ function getInputValue(
 
 function getDepartment() {
     return document.querySelector("#department").textContent;
-}
+};
+
+function getDate() {
+    return document.querySelector("#monthYear").textContent;
+};
 
 export function checkMemberRepetition(
     json
