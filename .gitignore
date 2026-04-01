@@ -1,5 +1,4 @@
 node_modules/
 .firebase/
 dist/
-vite.config.js
 .env
