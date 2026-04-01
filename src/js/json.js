@@ -49,7 +49,7 @@ function getDepartment() {
 };
 
 function getDate() {
-    return document.querySelector("#monthYear").textContent;
+    return document.querySelector("#monthAndYear").textContent;
 };
 
 export function checkMemberRepetition(

@@ -20,7 +20,7 @@ export function getServiceDays(
     return serviceDays;
 };
 
-export function getMonthYear(
+export function getMonthAndYear(
     year=dt.getYear(new Date()),
     month=dt.getMonth(new Date())
 ) {

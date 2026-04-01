@@ -185,7 +185,7 @@ main {
     color: var(--color-gray-7escala);
 }
 
-#main-content-header {
+.main-content-header {
     color: var(--color-blue-7escala);
 
     margin: 0px 0px 32px 0px;
@@ -222,7 +222,7 @@ main {
     color: var(--color-gray-7escala);
 }
 
-.day-name {
+.calendar-day-name {
     font: var(--fw-regular) var(--fs-h2) var(--font-main);
     color: var(--color-gray-7escala);
 }
