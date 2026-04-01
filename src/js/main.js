@@ -1,10 +1,12 @@
-import { parseToJSON, checkMemberRepetition } from "./json";
+import { parseToJSON } from "./json";
 import { buildEscala, buildReadyEscala } from "./escala";
 import { printEscala } from "./print";
+import { getMonthAndYear } from "./dates";
+
 import { get, child, set, ref } from "firebase/database";
 import { db } from "./firebaseConfig";
 
-const filePath = "abril de 2026";
+const filePath = `${getMonthAndYear()}/${window.location.pathname.split("/")[-1 + window.location.pathname.split("/").length].split(".")[0]}`;
 
 get(child(ref(db), filePath)).then(async (snapshot) => {
     if (snapshot.exists()) {
@@ -26,7 +28,3 @@ get(child(ref(db), filePath)).then(async (snapshot) => {
 }).catch((error) => {
     console.error("Error fetching data:", error);
 });
-
-// if (!checkMemberRepetition(escalaJSON) || checkMemberRepetition(escalaJSON) && button) {
-//     await printEscala();
-// };
