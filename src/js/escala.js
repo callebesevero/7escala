@@ -13,6 +13,44 @@ export async function buildEscala(
     document.querySelector(".main-content").innerHTML += buildConfirmButton();
 };
 
+export function buildReadyEscala(
+    escala,
+    calendarId="calendar"
+) {
+    document.querySelector(".main-content-header").innerHTML += buildMonthAndYear(escala.date);
+
+    const calendar = document.querySelector(`#${calendarId}`);
+    calendar.innerHTML += buildCalendarDayName() + buildReadyServiceDays(escala["service-dates"]);
+
+    // button print
+};
+
+function buildReadyServiceDays(
+    serviceDays
+) {
+    return serviceDays.map((days) => {
+        return buildReadyLabelAndInput(days.date, days.people);
+    })
+    .join("");
+};
+
+function buildReadyLabelAndInput(
+    date,
+    people
+) {
+    if (date === "") {
+        return `<div class="calendar-day" style="visibility: hidden">
+                    <div class="date">${date}</div>
+                    <div class="people">${people.join(" - ")}</div>
+                </div>`;
+    } else {
+        return `<div class="calendar-day">
+                    <div class="date">${date}</div>
+                    <div class="people">${people.join(" - ")}</div>
+                </div>`;
+    };
+};
+
 function buildMonthAndYear(
     monthAndYear
 ) {
@@ -39,9 +77,19 @@ function buildServiceDays(
         let prefix = "";
         if (i === 0) {
             if (dayName === "quarta-feira") { // if first day is wednesday
-                prefix = `<div></div>`;
+                prefix = `<div>
+                            <label class="date" for="${date["dayNumber"]}" style="visibility: hidden;"></label>
+                            <input type="text" class="people" id="${date["dayNumber"]}" placeholder="Adicione pessoas" style="visibility: hidden;">
+                        </div>`;
             } else if (dayName === "sábado") { // if first day is saturday
-                prefix = `<div></div><div></div>`;
+                prefix = `<div>
+                            <label class="date" for="${date["dayNumber"]}" style="visibility: hidden;"></label>
+                            <input type="text" class="people" id="${date["dayNumber"]}" placeholder="Adicione pessoas" style="visibility: hidden;">
+                        </div>
+                        <div>
+                            <label class="date" for="${date["dayNumber"]}" style="visibility: hidden;"></label>
+                            <input type="text" class="people" id="${date["dayNumber"]}" placeholder="Adicione pessoas" style="visibility: hidden;">
+                        </div>`;
             };
         };
         return buildLabelAndInput(prefix, date); // config label and input
@@ -55,7 +103,7 @@ function buildLabelAndInput(
 ) {
     return `${prefix}
     <div class="calendar-day">
-        <label for="${date["dayNumber"]}">${date["dayNumber"]}</label>
+        <label class="date" for="${date["dayNumber"]}">${date["dayNumber"]}</label>
         <input type="text" class="people" id="${date["dayNumber"]}" placeholder="Adicione pessoas">
     </div>`;
 };

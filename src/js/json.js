@@ -28,9 +28,9 @@ function getLabel() {
 };
 
 function getInputValue(
-    element="#calendar > div > input"
+    element="calendar > div > input"
 ) {
-    return Array.from(document.querySelectorAll(element)).map(inp => {
+    return Array.from(document.querySelectorAll(`#${element}`)).map(inp => {
         const people = inp.value.toUpperCase();
         if (people.includes(",")) { // if are more of one people
             const splittedPeople = people.split(",").map(p => {
