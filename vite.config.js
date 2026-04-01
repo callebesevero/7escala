@@ -6,7 +6,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         // Nome: caminho do arquivo
-        main: resolve(__dirname, '../../index.html'),
+        main: resolve(__dirname, 'index.html'),
         comunicacao: resolve(__dirname, 'src/pages/comunicacao.html'),
         diaconato: resolve(__dirname, 'src/pages/diaconato.html'),
         escola: resolve(__dirname, 'src/pages/escola-sabatina.html'),
