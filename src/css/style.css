@@ -194,32 +194,10 @@ main {
 #calendar {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-
+    
     text-align: center;
-
-    /* max-width: var(--desktop-width); */
-
-    gap: 16px 32px;
-}
-
-.calendar-day {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    padding: 8px 32px;
     
-    height: 80px;
-    border-radius: 32px;
-    
-    border-style: solid;
-    border-color: var(--color-gray-7escala);
-}
-
-.calendar-day label {
-    font: var(--fw-regular) var(--fs-h3) var(--font-main);
-    color: var(--color-gray-7escala);
+    gap: 8px 8px;
 }
 
 .calendar-day-name {
@@ -227,24 +205,49 @@ main {
     color: var(--color-gray-7escala);
 }
 
-input.people {
+.calendar-day {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    
+    padding: 8px 32px;
+    gap: 16px;
+    
+    max-width: var(--desktop-width);
+    width: 100%;
+    overflow: hidden;
+
+    box-sizing: border-box;
+    height: 80px;
+    border-radius: 32px;
+    
+    background-color: var(--color-light-gray-7escala);
+}
+
+.calendar-day .date {
+    font: var(--fw-bold) var(--fs-h2) var(--font-main);
+    color: var(--color-gray-7escala);
+}
+
+.calendar-day input.people {
     /* structure */
-    border-style: hidden;
-    border-radius: 50px;
+    border-style: none;
+    border-radius: 16px;
 
     min-height: 40px;
-    field-sizing: content;
-    resize: none;
     overflow: hidden;
 
     padding: 0px 16px;
 
     /* decoration */
-    background-color: var(--color-light-gray-7escala);
+    background-color: var(--color-white);
 }
 
-input.people::target-text {
-    border-style: hidden;
+div.people {
+    text-align: left;
+
+    font: var(--fw-bold) var(--fs-body) var(--font-main);
+    color: var(--color-gray-7escala);
 }
 
 div.button {
