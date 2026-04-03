@@ -1,0 +1,137 @@
+@page { 
+    size: auto;   /* auto é o valor padrão */
+    margin: 0mm;  /* Remove margens e, consequentemente, cabeçalho/rodapé */
+}
+
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
+:root {
+    /* color */
+    --color-blue-7escala: #1E51A1;
+    --color-gray-7escala: #707070;
+    --color-light-gray-7escala: #D2D2D2;
+
+    --color-blue: #003366;
+    --color-dark-gray: #303336;
+    --color-light-gray: #eef0f3;
+    --color-white: #fff;
+
+    --color-divisao: #003366;
+    --color-earth: #5e3929;
+    --color-emperor: #4b207f;
+    --color-ming: #3e8391;
+    --color-campfire: #e36520;
+    --color-grapevine: #7f264a;
+    --color-tree-frog: #448d21;
+    --color-cool: #4d7549;
+    --color-warm: #ffa92d;
+    --color-denim: #2f557f;
+
+    /* font */
+    --fw-bold: 700;
+    --fw-regular: 400;
+    
+    --fs-h1: 50px;
+    --fs-h2: 30px;
+    --fs-h3: 20px;
+    --fs-body: 16px;
+    
+    --font-main: "Noto Sans", sans-serif;
+
+    /* sctructure */
+    --desktop-width: 1024px;
+    --tablet-width: 768px;
+    --mobile-width: 320px;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    gap: 0px;
+}
+
+body {
+    /* decoration */
+    color: var(--color-dark-gray);
+    font: var(--fw-regular) var(--fs-body) var(--font-main);
+}
+
+main {
+    padding: 0% 5%;
+}
+
+.main-content {
+    width: 100%;
+
+    margin-top: 50px;
+    
+    max-width: var(--desktop-width);
+}
+
+.main-content-header {
+    color: var(--color-blue-7escala);
+    
+    margin: 0px 0px 32px 0px;
+}
+
+.calendar-day-name {
+    display: none;
+
+    font: var(--fw-regular) var(--fs-h2) var(--font-main);
+    color: var(--color-gray-7escala);
+
+    display: grid;
+    text-align: center;
+}
+
+#calendar {
+    display: grid;
+    grid-template-columns: 1fr;
+    
+    text-align: center;
+    
+    gap: 8px 8px;
+
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.calendar-day {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    
+    padding: 8px 32px;
+    gap: 16px;
+    
+    width: 100%;
+    overflow: hidden;
+
+    box-sizing: border-box;
+    height: 80px;
+    border-radius: 32px;
+    
+    background-color: var(--color-light-gray-7escala);
+
+    max-width: var(--desktop-width);
+}
+
+.calendar-day .date {
+    font: var(--fw-bold) var(--fs-h2) var(--font-main);
+    color: var(--color-gray-7escala);
+}
+
+div.people {
+    text-align: left;
+
+    font: var(--fw-bold) var(--fs-body) var(--font-main);
+    color: var(--color-gray-7escala);
+}
+
+.div-button {
+    display: none;
+}

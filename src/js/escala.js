@@ -23,6 +23,8 @@ export function buildReadyEscala(
     calendar.innerHTML += buildCalendarDayName() + buildReadyServiceDays(escala["service-dates"]);
 
     // button print
+    const page = document.querySelector(".main-content");
+    page.innerHTML += buildPrintButton();
 };
 
 function buildReadyServiceDays(
@@ -109,7 +111,13 @@ function buildLabelAndInput(
 };
 
 function buildConfirmButton() {
-    return `<div class="button">
-        <input id="confirm" type="button" value="Confirmar escala">
-    </div>`;
+    return `<div class="div-button">
+                <input id="confirm" class="button" type="button" value="Confirmar escala">
+            </div>`;
+};
+
+function buildPrintButton() {
+    return `<div class="div-button">
+                <input id="print" class="button" type="button" value="Imprimir escala">
+            </div>`;
 };

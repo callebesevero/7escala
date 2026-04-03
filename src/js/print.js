@@ -1,8 +1,8 @@
 export async function printEscala() {
     printJS({
-        printable: "calendar",
+        printable: "main",
         type: "html",
-        css: "style.css",
+        css: "../css/print.css",
         scanStyles: false
     });
 };

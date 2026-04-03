@@ -13,6 +13,11 @@ get(child(ref(db), filePath)).then(async (snapshot) => {
         const data = JSON.parse(snapshot.val());
 
         buildReadyEscala(data);
+
+        const printButton = document.querySelector("#print");
+        printButton.addEventListener("click", async () => {
+            await printEscala();
+        });
     } else {
         await buildEscala();
         
@@ -20,7 +25,6 @@ get(child(ref(db), filePath)).then(async (snapshot) => {
         const confirmButton = document.querySelector("#confirm");
         confirmButton.addEventListener("click", async () => {
             const escalaJSON = await parseToJSON(); // JSON schedule
-            console.log(escalaJSON);
         
             set(ref(db, filePath), escalaJSON);
 
