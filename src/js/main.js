@@ -23,6 +23,8 @@ get(child(ref(db), filePath)).then(async (snapshot) => {
             console.log(escalaJSON);
         
             set(ref(db, filePath), escalaJSON);
+
+            window.location.reload();
         });
     }
 }).catch((error) => {
